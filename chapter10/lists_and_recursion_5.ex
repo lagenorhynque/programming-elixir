@@ -21,8 +21,8 @@ defmodule MyEnum do
   def split([], _), do: {[], []}
   def split(list, count) when count == 0, do: {[], list}
   def split([head | tail], count) when count > 0 do
-    {first, rest} = split(tail, count - 1)
-    {[head | first], rest}
+    {first, second} = split(tail, count - 1)
+    {[head | first], second}
   end
   def split(list, count) when count < 0, do: split(list, max(0, length(list) + count))
 
